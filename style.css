@@ -1,0 +1,129 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container to center the signup box */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #331166, #436411);
+    perspective: 1000px;
+}
+
+/* Signup box styling */
+.signup-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    width: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.signup-box:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Heading style */
+.signup-box h2 {
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Fade-in effect for headings and inputs */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Input box styling */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    outline: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    transform: translateZ(20px);
+}
+
+.input-box input:focus {
+    border-bottom: 2px solid #436411;
+}
+
+.input-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    pointer-events: none;
+    transition: 0.5s;
+    transform: translateZ(20px);
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #436411;
+    font-size: 12px;
+}
+
+/* 3D Button styling */
+button {
+    background: #331166;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(51, 17, 102, 0.4);
+    transform: translateZ(30px);
+}
+
+button:hover {
+    background: #2e0e6e;
+    transform: translateZ(40px) scale(1.05);
+}
+
+/* Adding 3D shadows */
+.signup-box,
+.input-box input,
+button {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
